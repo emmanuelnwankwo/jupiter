@@ -2,6 +2,6 @@ export interface Comment {
   id: string
   movieId: number
   content: string
-  ipAddress: string
+  commenterIpAddress: string
   createdDate: Date
 }

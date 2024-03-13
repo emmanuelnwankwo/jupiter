@@ -8,7 +8,7 @@ export class CommentFactory {
   createNewComment (createCommentDto: CreateCommentDto, ipAddress: string): IComment {
     const newComment = new Comment()
     newComment.movieId = createCommentDto.movieId
-    newComment.ipAddress = ipAddress
+    newComment.commenterIpAddress = ipAddress
     newComment.content = createCommentDto.content
 
     return newComment
