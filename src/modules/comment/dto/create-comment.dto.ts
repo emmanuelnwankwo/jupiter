@@ -7,7 +7,7 @@ export class CreateCommentDto {
      */
   @IsNumber()
   @IsNotEmpty()
-    movieId: number
+  movieId: number
 
   /**
      * The content of the comment
@@ -16,5 +16,5 @@ export class CreateCommentDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(500, { message: 'The comment is too long' })
-    content: string
+  content: string
 }

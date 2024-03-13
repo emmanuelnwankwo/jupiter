@@ -8,9 +8,13 @@ export class CommentFactory {
   createNewComment (createCommentDto: CreateCommentDto, ipAddress: string): IComment {
     const newComment = new Comment()
     newComment.movieId = createCommentDto.movieId
-    newComment.commenterIpAddress = ipAddress
+    newComment.commenterIpAddress = this.getIpAdress(ipAddress)
     newComment.content = createCommentDto.content
 
     return newComment
+  }
+
+  getIpAdress (val: string): string {
+    return val.includes(':') ? val.split(':').pop() : val;
   }
 }

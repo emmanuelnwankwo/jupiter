@@ -15,7 +15,7 @@ export class Comment implements IComment {
   })
     content: string
 
-  @Column({ name: 'commenter_ip_address', type: 'varchar', length: 15 })
+  @Column({ name: 'commenter_ip_address', type: 'varchar', length: 30 })
     commenterIpAddress: string
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP_UTC', name: 'created_date_in_utc' })
