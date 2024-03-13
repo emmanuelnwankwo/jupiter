@@ -1,27 +1,22 @@
-import { Controller, Get, Param, ParseBoolPipe, Query } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { CharacterService } from './character.service';
 import { QueryDto } from './dto/query.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiPaginatedResponse } from 'src/common/decorator/api-paginated-response.decorator';
+import { GetCharacterResponseDto } from './dto/get-character-response.dto';
 
 @ApiTags('Characters')
 @Controller('character')
 export class CharacterController {
-  constructor(private readonly characterService: CharacterService) {}
+  constructor(private readonly characterService: CharacterService) { }
 
   @Get()
-  async findAll(@Query('filterByGender') filterByGender?: string, 
-  @Query('sort') sort?: string, 
-  @Query('direction') direction: string = 'asc') {
-    const params: QueryDto = {
-      filterByGender: filterByGender,
-      sort: sort,
-      direction: direction,
-    };
-    return this.characterService.findAll(params);
+  @ApiOperation({ summary: 'Get movie character list' })
+  @ApiPaginatedResponse(GetCharacterResponseDto, 'Return all characters')
+  async findAll(
+    @Query() queryDto: QueryDto): Promise<any> {
+
+    return this.characterService.findAll(queryDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.characterService.findOne(+id);
-  }
 }
