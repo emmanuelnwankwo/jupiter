@@ -5,6 +5,7 @@ export const configuration = (): {
     username: string
     password: string
     database: string
+    logging: boolean
   }
   appPort: number
   swapiUrl: string
@@ -14,7 +15,8 @@ export const configuration = (): {
     port: Number(process.env.DATABASE_PORT),
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME
+    database: process.env.DATABASE_NAME,
+    logging: JSON.parse(process.env.DATABASE_LOGGING),
   },
   appPort: Number(process.env.APP_PORT),
   swapiUrl: process.env.SWAPI_URL

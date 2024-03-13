@@ -19,12 +19,7 @@ import { Comment } from './core/entities/comment.entity'
     TypeOrmModule.forRoot({
       ...configuration().database,
       type: 'postgres',
-      logging: true,
       synchronize: true,
-      // migrations: [__dirname + '/migrations/*{.ts,.js}'
-      // ],
-      // migrationsRun: true,
-      // entities: [__dirname + '/dist/**/*.entity.js'],
       entities: [Comment],
       migrations: [__dirname + '/dist/migrations/*.js']
     }),
