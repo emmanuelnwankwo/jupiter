@@ -6,4 +6,5 @@ export interface Config {
   DATABASE_PASSWORD: string
   DATABASE_CA_CERT: string
   APP_PORT: number
+  SWAPI_URL: string
 }
