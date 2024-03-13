@@ -20,3 +20,7 @@ export class GetCommentResponseDto {
     */
     public commenterIpAddress: string
 }
+
+export class CreateCommentResponseDto {
+    public data: GetCommentResponseDto
+}
