@@ -6,7 +6,7 @@ services:
   #   environment:
   #     POSTGRES_PASSWORD: password
   #     POSTGRES_USERNAME: postgres
-  #     POSTGRES_DB: app
+  #     POSTGRES_DB: jupiter
   #   networks:
   #     - app
   dev:
